@@ -16,3 +16,6 @@ for(let key in obj){
 //configurable:true  是否可配置
 // delete obj.name   false 无法通过delete等 删除或者修改等操作 
 // 默认都是true  
+let arr = [[1,2,2],1,2]
+let res = [].concat.apply([],arr);
+
