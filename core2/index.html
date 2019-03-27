@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>vue的生命周期</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id='app'>{{msg}}</div>
+   <!-- mvvm  -> view  model  viewmodel  -->
+<script>
+	//在new Vue的时候 init events&&lifeCycle 初始化了一些时间和生命周期函数
+	// create的时候 init injections&&reacitivy 
+	// beforemount&&
+	//如果有template 会替换原来的dom 
+	// beforemount->mounted  Creat vm.$el and replace el with it 创建一个vm.$el 替换el元素
+	//一般用 watch 方法替代beforeUpdate和updated防止死循环 
+	//beforeDestroy destroyed 
+	// Teardown watchers,child component an eventlisteners 
+	// when vm.$destory() is called 当vm.destry()方法被调用的时候
+	// 移除了组件和子组件监听方法等  dom和原数据还是存在的 只是无法响应了 
+    let vm =  new Vue({
+	  // el:'#app',
+       data:{
+		 msg:'hello world'  
+	   },
+	   beforeCreate() {//可以定义一些公共方法 vue-router vuex 定义全局组件 就是在这个生命周期
+	   },
+	   created() { //进行数据的初始化操作，发送ajax 
+		   console.log(this.$data.msg)
+	   },
+	   beforeMount() {
+		   console.log('beforemount')
+	   },
+	   mounted(){//操作dom 
+
+	   },
+	   beforeUpdate() {
+		   console.log('更新💰')
+	   },
+	   updated() {
+		   console.log('更新后')
+	   },
+	   watch: {
+		  msg(newval,oldval){
+			  console.log(newval,oldval)
+		  } 
+	   },
+	   beforeDestroy() {
+		   console.log('销毁💰')
+	   },
+	   destroyed() {
+		   console.log('销毁后')
+	   },
+       // template:'<div>111</div>'
+	})
+	vm.$mount('#app')
+    vm.$destroy()
+ </script>
+  
+</body>
+</html>

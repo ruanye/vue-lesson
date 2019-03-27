@@ -1,0 +1,23 @@
+{
+  "name": "vue-core",
+  "version": "1.0.0",
+  "description": "《热爱生命》 我不去想是否能够成功,既然选择了远方,便只顾风雨兼程,我不去想能否赢得爱情,既然钟情于玫瑰,就勇敢地吐露真诚,我不去想身后会不会袭来寒风冷雨,既然目标是地平线,留给世界的只能是背影,我不去想未来是平坦还是泥泞,只要热爱生命,一切，都在意料之中 《山高路远》 呼喊是爆发的沉默,沉默是无声的召唤,不论激越,还是宁静,我祈求,只要不是平淡,如果远方呼唤我,我就走向远方,如果大山召唤我,我就走向大山,双脚磨破,干脆再让夕阳涂抹小路,双手划烂，索性就让荆棘变成杜鹃，没有比脚更长的路，没有比人更高的山",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruanye/vue-lesson.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruanye/vue-lesson/issues"
+  },
+  "homepage": "https://github.com/ruanye/vue-lesson#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
+}
