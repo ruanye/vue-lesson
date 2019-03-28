@@ -1,16 +1,32 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">首页</router-link> 
-      <router-link to="/list">列表</router-link>
-      <router-link to="/car">购物车</router-link>
-      <router-link to="/profile">个人中心</router-link>
-    </div>
-    <router-view/>
+     
+     <Nav/>
+     <router-view/>
   </div>
 </template>
-
+<script>
+import Nav from './components/Nav'
+import Header from './components/Header'
+export default {
+  name:'app',
+  components:{
+    Nav,
+    Header
+  }
+}
+</script>
 <style lang="less">
+*{
+ padding: 0;
+ margin: 0;
+}
+a{
+  text-decoration: none
+}
+ul,li{
+  list-style: none;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -19,12 +35,24 @@
   color: #2c3e50;
 }
 #nav {
-  padding: 30px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  border-top: 1px solid #e3e3e3;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   a {
-    font-weight: bold;
+    flex:1;
+    display: flex;
+    flex-direction: column;
     color: #2c3e50;
     &.router-link-exact-active {
       color: #42b983;
+    }
+    i{
+      font-size: 26px
     }
   }
 }

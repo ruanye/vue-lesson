@@ -34,7 +34,14 @@ yarn global add @vue/cli
 npm install axios 
 ```
 7.导航 路由 组件 一一对应
+路由激活样式的class 
+```
+router-link-exact-active router-link-active
+```
+8. 组件引入三部曲 
+import 引入 ->components 注册 ->作为标签使用  
 
+9.使用插槽  slot  
 
 
 

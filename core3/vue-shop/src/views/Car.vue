@@ -1,8 +1,12 @@
 <template>
- <div>car</div>
+  <Header>购物车</Header>
 </template>
 <script>
+import Header from '../components/Header'
 export default {
-  name: 'car'
+  name: 'car',
+  components:{
+    Header
+  }
 }
 </script>

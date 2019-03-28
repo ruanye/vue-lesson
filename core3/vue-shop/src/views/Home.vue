@@ -1,8 +1,12 @@
 <template>
- <div>1234</div>
+  <Header>首页</Header>
 </template>
 <script>
+import Header from '../components/Header'
 export default {
-  name: 'home'
+  name: 'home',
+  components:{
+    Header
+  }
 }
 </script>
