@@ -18,4 +18,3 @@ for(let key in obj){
 // 默认都是true  
 let arr = [[1,2,2],1,2]
 let res = [].concat.apply([],arr);
-
