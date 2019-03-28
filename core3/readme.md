@@ -11,6 +11,7 @@ yarn global add @vue/cli
   vue ui  可视化界面
   vue create '项目名'  (命名行) 空格是选中 
   baebl router css/less/sass 
+  允许 命令行 npm run serve
 ```
 3.路由懒加载
 ```
@@ -24,11 +25,17 @@ yarn global add @vue/cli
 	 -views 放页面级组件 
 	 -util  工具类 
 5.查找图标 http://iconfont.cn 
-
 ```
 首页 列表 个人中心 购物车 返回 
 图标地址：//at.alicdn.com/t/font_1112654_5qiba7kka4k.css
 ```
+6.下载axios 
+``` 
+npm install axios 
+```
+7.导航 路由 组件 一一对应
+
+
 
 
    

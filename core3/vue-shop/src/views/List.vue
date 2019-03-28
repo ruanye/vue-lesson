@@ -1,8 +1,8 @@
 <template>
- <div>1234</div>
+ <div>list</div>
 </template>
 <script>
 export default {
-  name: 'home'
+  name: 'list'
 }
 </script>

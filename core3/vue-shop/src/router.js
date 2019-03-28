@@ -9,9 +9,19 @@ export default new Router({
       component: ()=>import('./views/Home.vue')
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('./views/About.vue')
+      path: '/list',
+      name: 'list',
+      component: ()=>import('./views/List.vue')
+    },
+    {
+      path: '/car',
+      name: 'car',
+      component: ()=>import('./views/Car.vue')
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: ()=>import('./views/Profile.vue')
     }
   ]
 })

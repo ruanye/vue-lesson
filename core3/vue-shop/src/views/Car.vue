@@ -1,8 +1,8 @@
 <template>
- <div>1234</div>
+ <div>car</div>
 </template>
 <script>
 export default {
-  name: 'home'
+  name: 'car'
 }
 </script>
