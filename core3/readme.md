@@ -42,6 +42,10 @@ router-link-exact-active router-link-active
 import 引入 ->components 注册 ->作为标签使用  
 
 9.使用插槽  slot  
+10. 使用less、sass、stylus 
+npm install less less-loader 
+npm install node-sass sass-loader
+npm install stylus  stylus-loader 
 
 
 
