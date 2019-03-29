@@ -46,6 +46,16 @@ import 引入 ->components 注册 ->作为标签使用
 npm install less less-loader 
 npm install node-sass sass-loader
 npm install stylus  stylus-loader 
+10.轮播图组件
+ npm install vue-awesome-swiper --save
+ main.js  粘贴 
+ import VueAwesomeSwiper from 'vue-awesome-swiper'
+ import 'swiper/dist/css/swiper.css'
+ Vue.use(VueAwesomeSwiper)
+写banner 组件 
+ 
+
+
 
 
 

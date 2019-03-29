@@ -51,8 +51,15 @@ ul,li{
       color: #42b983;
     }
     i{
-      font-size: 26px
+      font-size: 22px
     }
   }
+}
+.container{
+  position: fixed;
+  width: 100%;
+  top:56px;
+  bottom: 61px;
+  overflow-y: scroll
 }
 </style>
