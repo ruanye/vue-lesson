@@ -1,11 +1,14 @@
 import axios from 'axios'
-
+// 设置默认访问路径
 axios.defaults.baseURL ="http://localhost:3001";
+// 请求拦截 响应拦截 Interceptors 拦截器 
+// 响应拦截器 把拿回来数据过滤了一遍
 axios.interceptors.response.use((res)=>{
   return res.data
 },(err)=>{
   Promise.reject(err)
 })
+// axios是基于promsie封装的 返回值是一个promise 
 // 轮播图接口 
 export let getBannaer =()=>{
   return axios.get('/banner')
@@ -14,9 +17,6 @@ export let getBannaer =()=>{
 export let getHomelist = ()=>{
   return axios.get('/hot')
 }
-// 获取首页所有数据 axios.all= prmise.all
-export let getHomeAll=()=>{
-	return axios.all([getBannaer(),getHomelist()])
-}
+// 通过import引入的时候 export导出的会放在一个对象里面 {getbaner:getbananer(),getHomelsit:getHomelist()}
 
 

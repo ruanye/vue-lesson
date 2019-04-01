@@ -1,12 +1,12 @@
 // 写接口用的  服务端
 let http = require('http');
 let url  = require('url')
-let fs  = require('fs')
-let fsPromsie = fs.promises;
+let fs = require('fs')
+let fsPromise = fs.promises;
 let banner = require('./banner')
 function readList(){
   //函数的返回值如果是promise可以直接.then() readlist().then() 
-  return fsPromsie.readFile('./list.json','utf8').then(data=>{
+  return fsPromise.readFile('./list.json','utf8').then(data=>{
      return JSON.parse(data)
   })
 }

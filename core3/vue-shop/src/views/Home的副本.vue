@@ -20,7 +20,7 @@
 import Header from '../components/Header'
 import Banner from '../components/Banner.vue'
 // 解构赋值
-import {getHomeAll} from  '../api' 
+import {getBannaer,getHomelist} from  '../api' 
 export default {
   data(){
     return{
@@ -34,13 +34,20 @@ export default {
     Banner
   },
    created(){
-     this.getAll()
+     this.getSwiper();
+     this.getList()
   },
   methods:{
-    //获取首页所有数据轮播图和列表
-    async getAll(){
-     [this.sliders,this.list]= await getHomeAll()
-    }
+    //获取轮播图
+    async getSwiper(){
+        this.sliders= await getBannaer()
+     },
+     // 获取列表
+     async getList(){
+       this.list = await getHomelist()
+       console.log(this.list)
+       // v-for 渲染
+     }
   }
 }
 </script>

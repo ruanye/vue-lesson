@@ -59,6 +59,10 @@ npm install stylus  stylus-loader
 - data 定义数据
 - creat 调用发送请求的方法
 - methods 定义发送请求的方法 并发送请求
+12.v-for 的时候尽量有唯一值 用唯一值 不用index
+13.路由重定向
+redirect  
+
 
 
  
