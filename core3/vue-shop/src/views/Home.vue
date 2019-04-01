@@ -9,11 +9,13 @@
 <script>
 import Header from '../components/Header'
 import Banner from '../components/Banner.vue'
-import {getBannaer} from  '../api'
+// 解构赋值
+import {getBannaer,getHomelist} from  '../api' 
 export default {
   data(){
     return{
-      sliders:[]
+      sliders:[],
+      list:[]
     }
   },
   name: 'home',
@@ -21,9 +23,20 @@ export default {
     Header,
     Banner
   },
-  async created(){
-    this.sliders= await getBannaer()
-     
+   created(){
+     this.getSwiper();
+     this.getList()
+  },
+  methods:{
+    //获取轮播图
+    async getSwiper(){
+        this.sliders= await getBannaer()
+     },
+     // 获取列表
+     async getList(){
+       this.list = await getHomelist()
+       console.log(this.list)
+     }
   }
 }
 </script>

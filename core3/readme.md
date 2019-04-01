@@ -53,6 +53,14 @@ npm install stylus  stylus-loader
  import 'swiper/dist/css/swiper.css'
  Vue.use(VueAwesomeSwiper)
 写banner 组件 
+11. 请求的流程 
+- api/index.js  写请求的方法
+- 组件 home.vue  解构赋值拿到需要的请求方法
+- data 定义数据
+- creat 调用发送请求的方法
+- methods 定义发送请求的方法 并发送请求
+
+
  
 
 

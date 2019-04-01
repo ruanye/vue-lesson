@@ -1,6 +1,6 @@
 import axios from 'axios'
 // 设置默认访问路径
-axios.defaults.baseURL ="http://localhost:3000";
+axios.defaults.baseURL ="http://localhost:3001";
 // 请求拦截 响应拦截 Interceptors 拦截器 
 // 响应拦截器 把拿回来数据过滤了一遍
 axios.interceptors.response.use((res)=>{
@@ -13,5 +13,10 @@ axios.interceptors.response.use((res)=>{
 export let getBannaer =()=>{
   return axios.get('/banner')
 }
+// 首页列表接口 export 导出 
+export let getHomelist = ()=>{
+  return axios.get('/hot')
+}
+// 通过import引入的时候 export导出的会放在一个对象里面 {getbaner:getbananer(),getHomelsit:getHomelist()}
 
 
