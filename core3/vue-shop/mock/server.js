@@ -31,6 +31,31 @@ http.createServer((req,res)=>{
     })
     return
   }
+  // 列表页接口 全部数据
+  if(pathname ==='/all'){
+    readList().then(data=>{
+      res.end(JSON.stringify(data))
+    })
+    return 
+  }
+  // 分页接口  http://localhost:3001/page?page=1
+  if(pathname==='/page'){
+    // 取到前端传过来的页数
+    let page = query.page;
+    if(page=='undefined'){
+        page=1
+    }
+    console.log(page)
+    let hasmore = true;
+    let maxpage = page*5
+    // 第一页的数据 0-5 2页 5-10
+    readList().then(data=>{
+      let pagedata = data.slice(maxpage-5,maxpage)
+       hasmore =maxpage>=data.length?false:true;
+       res.end(JSON.stringify({hasmore,pagedata}))
+    })
+    return 
+  }
    res.end('1234')
    
 }).listen(3001,function(){

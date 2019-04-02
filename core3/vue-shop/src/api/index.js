@@ -18,5 +18,14 @@ export let getHomelist = ()=>{
 export let getHomeAll=()=>{
 	return axios.all([getBannaer(),getHomelist()])
 }
+// 获取所有数据
+export let  getListAll =()=>{
+   return axios.get('/all')
+}
+// 获取分页数据
+export let getpage=(page)=>{
+  console.log(page)
+  return axios.get(`page?page=${page}`)
+}
 
 
