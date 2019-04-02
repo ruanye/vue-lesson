@@ -64,6 +64,10 @@ npm install stylus  stylus-loader
 redirect  
 14.数据过多的时候 需要分页 一页5条数据 最开始请求的是第一页 page 页面参数 
 axios.get('/axios?page=1')
+15.滚动加载更多 判断到底部
+scorllTop+clientHeigt>scrollHeight
+methods computed  data 
+
 
 
  

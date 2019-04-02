@@ -1,7 +1,7 @@
 <template>
  <div>
     <Hearder>列表页</Hearder>
-    <div class="container">
+    <div class="container" ref="scrllele" @scroll="sload">
       <ul>
         <li v-for="item in list" :key="item.id">
           <img :src="item.img">
@@ -10,8 +10,9 @@
             <p>{{item.price}}$</p>
         </li>
       </ul>
-    </div>
- </div>
+       <button class="btn" @click="loadmore">{{hasmore?'股东加载更多':'没有更多'}}</button>
+     </div>
+  </div>
 </template>
 <script>
 import Hearder from '@/components/Header.vue'
@@ -32,11 +33,43 @@ export default {
     this.getA()
   },
   methods:{
+    // 滚动加载事件
+    sload(){
+      // 节流  防抖
+      clearTimeout(this.timer)
+      this.timer = setTimeout(()=>{
+       let {scrollTop,scrollHeight,clientHeight}=this.$refs.scrllele;
+        if(scrollTop+clientHeight+20>scrollHeight){
+        this.loadmore()
+        }
+       },13)
+   },
    async getA(){
       let {hasmore,pagedata:list}= await getpage(this.page)
-      this.list= list
+      // this.list=this.list.concat(list)
+      this.list =[...this.list,...list]
       this.hasmore=hasmore;
-    }
+    },
+     // 加载更多
+    loadmore(){
+      if(!this.hasmore)return
+      // 没有更多了就不在请求
+      this.page+=1;
+      this.getA()
+      }
   }
 }
 </script>
+<style lang="less">
+  .btn{
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    appearance:none;
+    border:none;
+    background-color:aquamarine;;
+    color: #555;
+    outline: none;
+    cursor: pointer;
+  }
+</style>
