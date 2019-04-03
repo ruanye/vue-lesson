@@ -1,6 +1,9 @@
 <template>
   <div class="box"> 
-	 <Header :isshow="true">详情页</Header>
+	 <Header>
+		 <i class="iconfont icon-web-icon-" @click="goBack"></i>
+		 详情页
+	 </Header>
 	  <div class="container">
 		<img :src="detailData.img">
 		{{detailData.name}}
@@ -35,7 +38,12 @@ export default {
 		  this.$router.push('/list')
 		}
   },
-  
+  methods:{
+	  goBack(){
+		// 返回上一页
+		 this.$router.go(-1)
+	  }
+  }
 }
 </script>
 <style lang="less">

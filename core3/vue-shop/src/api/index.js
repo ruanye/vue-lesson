@@ -24,7 +24,11 @@ export let  getListAll =()=>{
 }
 // 获取分页数据
 export let getpage=(page)=>{
-  return axios.get(`page?page=${page}`)
+  return axios.get(`/page?page=${page}`)
+}  
+// 获取详情
+export let getDetial=(page)=>{
+  return axios.get(`/detail?id=${page}`)
 }  
 
 
