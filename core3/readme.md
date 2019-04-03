@@ -67,7 +67,16 @@ axios.get('/axios?page=1')
 15.滚动加载更多 判断到底部
 scorllTop+clientHeigt>scrollHeight
 methods computed  data 
+15.路由传参 
+1.params 传参
 
+params路由必须是name  params的时候路径一定要带 动态参数 /:变量 
+/:id 表示必须有但是不固定  params
+2.query传参
+query 路由可以是name或者path  query的时候会有查询参数显示在地址栏
+http://localhost:8080/#/detail?id=1
+如果提供了 path，params 会被忽略，你需要提供路由的 name 或手写完整的带有参数的 path
+router-link标签实现路由跳转 tag可以转换a标签到其他标签
 
 
  

@@ -24,8 +24,8 @@ export let  getListAll =()=>{
 }
 // 获取分页数据
 export let getpage=(page)=>{
-  console.log(page)
   return axios.get(`page?page=${page}`)
-}
+}  
+
 
 

@@ -3,12 +3,12 @@
     <Hearder>列表页</Hearder>
     <div class="container" ref="scrllele" @scroll="sload">
       <ul>
-        <router-link :to="{name:'detail',params:{id:item.id}}" v-for="item in list" :key="item.id" tag="li">
+        <li @click="toDetail(item.id)" v-for="item in list" :key="item.id">
           <img :src="item.img">
             <p>{{item.name}}</p>
             <p>{{item.info}}</p>
             <p>{{item.price}}$</p>
-        </router-link>
+        </li>
       </ul>
        <button class="btn" @click="loadmore">{{hasmore?'股东加载更多':'没有更多'}}</button>
      </div>
@@ -33,6 +33,12 @@ export default {
     this.getA()
   },
   methods:{
+    // 跳转到详情页
+    toDetail(id){
+      this.$router.push({path:`/detail/${id}`})
+      //  this.$router.push({path:'detail',query:{id}})
+      // this.$router.push({name:'detail',params:{id}})
+    },
     // 滚动加载事件
     sload(){
       // 节流  防抖

@@ -56,7 +56,21 @@ http.createServer((req,res)=>{
     })
     return 
   }
-   res.end('1234')
+  // 详情页面接口 http://localhost:3001/detail?id=1
+  if(pathname==='/detail'){
+    let id = query.id;
+     readList().then(data=>{
+      // let single = data.filter(item=>item.id==id)
+       let single = data.find(item=>item.id==id)
+       if(!single){
+        // 如果single不在 返回空对象
+         res.end(JSON.stringify({}))
+       }
+       res.end(JSON.stringify(single))
+     })
+    return
+  }
+   res.end('404')
    
 }).listen(3001,function(){
 	console.log('3000启动成功')

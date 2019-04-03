@@ -23,6 +23,11 @@ export default new Router({
       name: 'profile',
       component: ()=>import('./views/Profile.vue')
     },
+    {
+      path: '/detail/:id',
+      name: 'detail',
+      component: ()=>import('./views/Detail.vue')
+    },
     {//一定要写在最后面
       path:'/*',
       redirect:'/'
