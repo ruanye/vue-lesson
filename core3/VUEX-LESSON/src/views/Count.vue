@@ -1,7 +1,8 @@
 <template>
   <div class="home">
-      <span @click="minus">-</span>
+      <span @click="minus(3)">-</span>
       {{count}}
+      <div>奇数，偶数</div>
       <span @click="add">+</span>
   </div>
 </template>
