@@ -1,18 +1,33 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+   
+     <!-- {{this.$store.state.a}} -->
+      <!-- {{a}}  -->
+     {{bcd}}
+     {{$store.getters.b}}
+     {{$store.getters.fiary}}
+     {{fiary}}
   </div>
 </template>
-
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import {mapState, mapGetters} from 'vuex'
 export default {
   name: 'home',
-  components: {
-    HelloWorld
+  data(){
+    return{}
+  },
+  computed:{
+    // ...mapState(['a'])
+    ...mapState({
+       bcd:state=>state.a
+    }),
+    // ...mapGetters(['fiary'])
+    ...mapGetters({
+       fiary:'fiary'
+    })
+    // fiary(){
+    //   return this.$store.getters.fiary
+    // }
   }
 }
 </script>

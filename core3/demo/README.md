@@ -1,29 +1,17 @@
-# demo
+##vuex 流程
+- 下载使用 
+1. 下载 npm install vuex
+2. 建立状态管理文件夹 src 目录下面创建store store里面建index.js
+3. index.js 引入并导出默认的store
+注意：第三方库 要使用Vue.use()
+4. main.js 引入并挂载到new Vue()实例
+- vuex里面的各种参数
+1. state 相当于vue组件的data state可以每个组件都使用
+取值：
+1）this.$store.state 
+2）使用辅助函数取值 mapState 映射数据(state)到组件 跟data(数据相关的) 都放在vue组件的computed属性里面
+computed 里面state的写法 可以写数据可以写对象 写对象的时候可以改名 值要对应箭头函数
+2. getters 相当于vue组件的  computed 属性 用来计算state里面的数据 
+mapGetters  映射经过getters处理的数据(state里面的数据)到组件
+可以写数据和对象 写对象的时候 值可以直接取 
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+	<div id="emit-example-simple">
+  <parent v-on:welcome="sayHi(1)"></parent>
+</div>
+<script>
+Vue.component('parent', {
+  template: `
+    <button v-on:click="$emit('welcome')">
+      Click me to be welcomed
+    </button>
+  `
+})
+new Vue({
+  el: '#emit-example-simple',
+  methods: {
+    sayHi: function (id) {
+      alert(id)
+    }
+  }
+})
+ 
+ 
+</script>
+</body>
+</html>
