@@ -2,7 +2,8 @@
   <div class="home">
       <span @click="minus(3)">-</span>
       {{count}}
-      <div>奇数，偶数</div>
+      <!-- <div>{{countname}}</div> -->
+      <div>{{count%2?'奇数':'偶数'}}</div>
       <span @click="add">+</span>
   </div>
 </template>
@@ -14,13 +15,15 @@ export default {
     return{}
   },
   computed:{
-    ...mapState(['count'])
+    ...mapState(['count']),
+      ...mapGetters(['countname'])
    },
    methods:{
     //  ...mapMutations(['minus']),//
      ...mapMutations({
           minus:'minus'
       }),
+    
     //this.$store.commit('minus) 映射成this.minus
      add(){
         // 把时间提交给mutations去处理
