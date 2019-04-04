@@ -8,6 +8,11 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'count',
+      component: () => import( './views/Count.vue')
+    },
+    {
+      path: '/home',
       name: 'home',
       component: () => import( './views/Home.vue')
     }

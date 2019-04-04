@@ -14,4 +14,11 @@ computed 里面state的写法 可以写数据可以写对象 写对象的时候�
 2. getters 相当于vue组件的  computed 属性 用来计算state里面的数据 
 mapGetters  映射经过getters处理的数据(state里面的数据)到组件
 可以写数据和对象 写对象的时候 值可以直接取 
-
+3. mutations acitons 相当于vue组件的methods  只能通过mutations去修改state mutations 只能是同步的  actions 处理异步(ajax) 
+vuex({
+	data:state,
+	computed:getters
+	methods:actions,mutations
+})
+vuex 同步的流程 组件通过 $store.commit('事件名') --> mutations mutations里面定义和提交过来的事件名同名的函数 -->通过函数改变state的值  
+commit 传参的问题 只能传一个参数 多个参数用对传递  mapMutions 辅助函数   
