@@ -9,6 +9,11 @@ export default new Router({
     {
       path: '/',
       name: 'count',
+      component: () => import( './views/Action.vue')
+    },
+    {
+      path: '/count',
+      name: 'count',
       component: () => import( './views/Count.vue')
     },
     {

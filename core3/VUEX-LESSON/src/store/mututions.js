@@ -6,6 +6,9 @@ const mutations= {
 		minus(state,payload){
 		
       state.count+=payload
+		},
+		toMu(state){//流程4 
+        alert(1) //流程5 
 		}
 	}
 export default mutations

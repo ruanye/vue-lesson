@@ -22,3 +22,10 @@ vuex({
 })
 vuex 同步的流程 组件通过 $store.commit('事件名') --> mutations mutations里面定义和提交过来的事件名同名的函数 -->通过函数改变state的值  
 commit 传参的问题 只能传一个参数 多个参数用对传递  mapMutions 辅助函数   
+
+异步的时候我们需要使用 actions  
+vuex 异步的流程   组件通过$store.dispatch('事件名') --->actions actions 里面定义 dispatch 提交过来的同名事件 参数是对象 我们通过解构赋值来拿到commit  ---> 事件里面 通过 commit('事件名1')
+到mutations --->mutations里面定义和提交过来的事件名1同名的函数 --->通过mutations函数改变state的值 
+
+####总结 actions 和mutations 
+actions mutations 同步异步都可以使用actions 流程  异步必须通过actions提交到mutations去改变state  actions 里面方法的参数是{commit}  mutations 的参数是state mutations里面的方法名和commit提交的相同  actions的方法名和didpatch提交过来的方法名相同 
