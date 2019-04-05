@@ -9,6 +9,9 @@ const mutations= {
 		},
 		toMu(state){//流程4 
         alert(1) //流程5 
+		},
+		muser(state,user){
+        state.username = user;
 		}
 	}
 export default mutations
