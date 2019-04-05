@@ -8,7 +8,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'count',
+      name: 'form',
+      component: () => import( './views/Formvuex.vue')
+    },
+    {
+      path: '/count',
+      name: 'aciton',
       component: () => import( './views/Action.vue')
     },
     {

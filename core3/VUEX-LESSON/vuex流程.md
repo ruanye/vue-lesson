@@ -33,3 +33,14 @@ actions mutations 同步异步都可以使用actions 流程  异步必须通过a
 ##辅助函数使用
 跟data(数据相关的) 都放在vue组件的computed属性里面 (mapState,mapGetters)
 跟方法相关的  都放在vue组件的methods属性里面  (mapMutations,mapActions)
+
+##mapMutations 为了方便合作 会把函数的名字定义成为常量去使用 const 
+所有export导出的文件 用的时候都要用 import 引入 
+如果vuex vue 实例 注意一点要挂载   
+导出  --->引入 --->挂载  
+import * as objname  from './文件路径'
+把export 里面导出的变量放在你定义的对象名 的对象里面 
+##vuex中表单的处理
+文档  .https://vuex.vuejs.org/zh/guide/forms.html
+1.利用computed的 get和set方法实现
+2.利用绑定input事件实现  v-model 改成 :value
