@@ -8,6 +8,7 @@
             <p>{{item.name}}</p>
             <p>{{item.info}}</p>
             <p>{{item.price}}$</p>
+            <button class="btn btns" @click.stop="addcar(item)">添加到购物车</button>
         </router-link>
       </ul>
        <button class="btn" @click="loadmore">{{hasmore?'股东加载更多':'没有更多'}}</button>
@@ -16,6 +17,7 @@
 </template>
 <script>
 import Hearder from '@/components/Header.vue'
+import * as Types from '../store/mutations-types'
 import {getpage} from '../api'
 export default {
   name: 'list',
@@ -33,6 +35,11 @@ export default {
     this.getA()
   },
   methods:{
+    // 添加到购物车事件
+    addcar(item){
+      //提交到mutations
+      this.$store.commit(Types.ADD_CAR,item)
+    },
     // 滚动加载事件
     sload(){
       // 节流  防抖
@@ -71,5 +78,11 @@ export default {
     color: #555;
     outline: none;
     cursor: pointer;
+  }
+  .btns{
+     background-color:rebeccapurple;
+     border-radius: 10px;
+       color: #fff;
+       font-size: 26px;
   }
 </style>

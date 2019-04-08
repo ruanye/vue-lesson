@@ -77,6 +77,8 @@ query 路由可以是name或者path  query的时候会有查询参数显示在�
 http://localhost:8080/#/detail?id=1
 如果提供了 path，params 会被忽略，你需要提供路由的 name 或手写完整的带有参数的 path
 router-link标签实现路由跳转 tag可以转换a标签到其他标签
+16.第三方插件使用的流程(vuex,vue-router)
+1.vue.use使用  2.导出  3.引入  4.挂载 
 
 <!-- 作业 --> 周二交 
 添加会员界面  姓名 电话号码 地址

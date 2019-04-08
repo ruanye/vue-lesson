@@ -44,3 +44,4 @@ import * as objname  from './文件路径'
 文档  .https://vuex.vuejs.org/zh/guide/forms.html
 1.利用computed的 get和set方法实现
 2.利用绑定input事件实现  v-model 改成 :value
+
