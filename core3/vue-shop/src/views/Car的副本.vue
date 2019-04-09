@@ -14,13 +14,10 @@
            </div>
            <div>
              <p>{{item.name}}</p>
-             <p>{{item.count}}</p>
-             <p>{{item.price}}</p>
              <img :src="item.img"/>
            </div>
          </li>
        </ul>
-       <div>总价：{{$store.getters.total}}</div>
     </div>
   </div>
 </template>
@@ -42,8 +39,7 @@ export default {
        // [name:'',id:'',sele: true,name:'',id:'',sele: false]
         //通过vuex的数据必须经过mutations去修改值
         // 全选值改变触发所有单选框改变的事件
-        //actions流程1 
-        this.$store.dispatch('checkAll',val)
+       this.$store.commit('changeAll',val)
       }
     }
   }

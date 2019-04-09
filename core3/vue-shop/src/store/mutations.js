@@ -1,6 +1,21 @@
 import * as Types from './mutations-types'
 import Vue from 'vue'
 const mutations ={
+	//atcions流程4 全选事件
+	changCheck(state,val){
+      //actions 流程5 改变state的数据
+	  //[name:'',id:'',sele: true,name:'',id:'',sele: false]
+	   state.carlist.forEach(checkbox => {
+		  checkbox.sele = val
+	  });
+	},
+	// 全选事件 
+	changeAll(state,val){
+     // 修改state.carlist 下面每一项的是否选中（就是我们自定义的sele)  
+	  state.carlist.forEach(checkbox => {
+		  checkbox.sele = val
+	  });
+	},
 	// 添加到购物车的事件
    [Types.ADD_CAR](state,payload){
 	   
