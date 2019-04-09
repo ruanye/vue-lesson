@@ -36,9 +36,30 @@ export default {
   },
   methods:{
     // 添加到购物车事件
-    addcar(item){
-      //提交到mutations
-      this.$store.commit(Types.ADD_CAR,item)
+    addcar(gooditem){
+     // 在缓存里面取购物车列表 如果没有就是空数组
+      let carlist;
+      if(localStorage&&localStorage['carlist']){
+         carlist = JSON.parse(localStorage['carlist'])   
+      }else{
+        carlist=[]
+      }
+       //判断这个商品有没有 没有的话数量为1 有的话数量加1 
+      let good = carlist.find(item=>item.id==gooditem.id)
+       if(!good){
+          gooditem.count=1;
+          // 自定义是否选中的双向绑定的值
+          this.$set(gooditem,'xuanzhong',true)
+          carlist= [...carlist,gooditem]
+       }else{
+         this.$set(good,'xuanzhong',true)
+         good.count++
+       }
+      // 最后的结果存到缓存里面  
+      localStorage['carlist']= JSON.stringify(carlist)
+     
+      //提交到mutations vuex用的
+      // this.$store.commit(Types.ADD_CAR,item)
     },
     // 滚动加载事件
     sload(){

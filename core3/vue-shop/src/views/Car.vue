@@ -2,51 +2,53 @@
   <div>
    <Header>购物车</Header>
     <div class="container">
-      <label for="checkall">
-         <span>全选</span>
-         <input v-model="checkAll" class="inp" type="checkbox" id="checkall">
-       </label>
+      <input type="checkbox" class="inp" v-model="checkAll"/>
        <ul>
-         <li v-for='item in carlist' :key='item.id' class="car-item">
-          
-           <div>
-            <input v-model='item.sele' type="checkbox" class="inp" >
-           </div>
-           <div>
-             <p>{{item.name}}</p>
-             <p>{{item.count}}</p>
-             <p>{{item.price}}</p>
-             <img :src="item.img"/>
-           </div>
+         <li v-for="good in carlist" :key="good.id" class="car-item">
+            <input class="inp" type="checkbox" v-model="good.xuanzhong">
+            <div>
+             <img :src="good.img" alt="">
+             <p>{{good.count}}</p>
+             <p>{{good.number}}</p>
+             <p>{{good.price}}</p>
+            </div>
          </li>
        </ul>
-       <div>总价：{{$store.getters.total}}</div>
+       <div>总价：{{total}}</div>
     </div>
   </div>
 </template>
 <script>
 import Header from '../components/Header'
-import {mapState} from 'vuex'
 export default {
    name: 'car',
-  components:{
-    Header
-  },
-  computed:{
-    ...mapState(['carlist']),
-    checkAll:{
-      get(){
-        return this.$store.getters.checkAllVal
-      },
-      set(val){ //只要checkAll改变就会触发set方法，下面每一项都要跟着这个值做改变
-       // [name:'',id:'',sele: true,name:'',id:'',sele: false]
-        //通过vuex的数据必须经过mutations去修改值
-        // 全选值改变触发所有单选框改变的事件
-        //actions流程1 
-        this.$store.dispatch('checkAll',val)
+   data(){
+      return {
+        carlist:[]
       }
-    }
-  }
+   },
+   created(){
+     this.carlist =localStorage['carlist']?JSON.parse(localStorage['carlist']):[]
+    },
+    computed:{
+      checkAll:{
+        get(){
+          return this.carlist.every(item=>item.xuanzhong==true)
+        },
+        set(val){
+          this.carlist.forEach(check=>check.xuanzhong=val)
+        }
+      },
+      total(){
+        return 
+        let newar  = this.carlist.filter(item=>item.xuanzhong==true)
+        let price = newar.reduce((prev,next)=>prev+next.count*next.price,0)
+        return price
+      }
+    },
+   components:{
+     Header
+   }
 }
 </script>
 <style scoped>
@@ -57,6 +59,7 @@ export default {
   border: 1px solid yellowgreen;
   outline: none;
   border-radius: 8px;
+  align-self: center
 }
 .inp:before{
    content: '';
@@ -76,8 +79,13 @@ export default {
   display: inline-block;
  
 }
- car-item{
+ .car-item{
+   width: 100%;
    display: flex;
-   flex-direction: row
+   flex-direction: row;
+   flex: 1
+ }
+ .left-item{
+   align-self: center
  }
 </style>
