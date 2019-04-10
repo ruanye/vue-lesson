@@ -9,6 +9,7 @@
             <p>{{item.info}}</p>
             <p>{{item.price}}$</p>
             <button class="btn btns" @click.stop="addcar(item)">添加到购物车</button>
+            <button class="btn btns" @click.stop="delegood(item)">删除</button>
         </router-link>
       </ul>
        <button class="btn" @click="loadmore">{{hasmore?'股东加载更多':'没有更多'}}</button>
@@ -18,7 +19,7 @@
 <script>
 import Hearder from '@/components/Header.vue'
 import * as Types from '../store/mutations-types'
-import {getpage} from '../api'
+import {getpage,deletgood} from '../api'
 export default {
   name: 'list',
   data(){
@@ -35,6 +36,16 @@ export default {
     this.getA()
   },
   methods:{
+    //删除事件
+   async delegood(good){
+       //delegood id 
+       //请求方式：delete 
+      // 请求地址： url:/delegood 
+      // 参数 商品id String 
+      // 后端删除成功前端在去做删除 
+         await deletgood(good.id)
+         this.list = this.list.filter(item=>item.id!=good.id)
+    },
     // 添加到购物车事件
     addcar(gooditem){
      // 在缓存里面取购物车列表 如果没有就是空数组

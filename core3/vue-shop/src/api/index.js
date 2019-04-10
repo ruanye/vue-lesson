@@ -1,5 +1,4 @@
 import axios from 'axios'
-
 axios.defaults.baseURL ="http://localhost:3001";
 axios.interceptors.response.use((res)=>{
   return res.data
@@ -30,6 +29,10 @@ export let getpage=(page)=>{
 export let getDetial=(page)=>{
   return axios.get(`/detail?id=${page}`)
 }  
+//删除商品  
+export let deletgood =(goodid)=>{
+   return axios.delete(`/delegood?id=${goodid}`)
+}
 
 
 

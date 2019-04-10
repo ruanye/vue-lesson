@@ -10,6 +10,11 @@ function readList(){
      return JSON.parse(data)
   })
 }
+// 写文件
+function writeList(data){
+  //函数的返回值如果是promise可以直接.then() 
+  return fsPromise.writeFile('./list.json',JSON.stringify(data),'utf8')
+}
 http.createServer((req,res)=>{
   //cors 跨域资源共享 
   res.setHeader('Access-Control-Allow-Origin','*')
@@ -69,6 +74,17 @@ http.createServer((req,res)=>{
        res.end(JSON.stringify(single))
      })
     return
+  }
+  if(pathname==='/delegood'){
+    console.log(pathname)
+     let id = query.id
+     readList().then(data=>{
+       let newdata= data.filter(item=>item.id!=id)
+        writeList(newdata).then(data=>{
+          res.end(JSON.stringify({code:200,id}))
+        })
+     })
+    return 
   }
    res.end('404')
    

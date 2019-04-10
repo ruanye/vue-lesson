@@ -8,7 +8,11 @@
 <script>
   export default {
     name: 'carrousel',
-	props:['swiperSlides'],
+	 props:{
+     swiperSlides:{ //数组和对象设置默认值需要用一个箭头函数  
+       default:()=>([])
+     }
+   },
     data() {
       return {
         swiperOption: {

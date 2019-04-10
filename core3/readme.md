@@ -79,7 +79,8 @@ http://localhost:8080/#/detail?id=1
 router-link标签实现路由跳转 tag可以转换a标签到其他标签
 16.第三方插件使用的流程(vuex,vue-router)
 1.vue.use使用  2.导出  3.引入  4.挂载 
-
+17. vue 打包  npm run build 注意事项  打包后的文件只能运行在服务端   
+wamp
 <!-- 作业 --> 周二交 
 添加会员界面  姓名 电话号码 地址
 登录页面  用户 密码 
