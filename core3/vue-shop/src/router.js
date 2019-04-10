@@ -19,6 +19,12 @@ export default new Router({
       component: ()=>import('./views/Car.vue')
     },
     {
+      path: '/car1',
+      name: 'car',
+      component: ()=>import('./views/Car1.vue')
+    },
+    
+    {
       path: '/profile',
       name: 'profile',
       component: ()=>import('./views/Profile.vue')

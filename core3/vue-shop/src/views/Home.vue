@@ -28,6 +28,7 @@ import Banner from '../components/Banner.vue'
 import Loading from '../components/loading'
 // 解构赋值
 import {getHomeAll} from  '../api' 
+import Axios from 'axios';
 export default {
   data(){
     return{
@@ -42,7 +43,7 @@ export default {
     Banner,
     Loading
   },
-   created(){
+  created(){
      this.getAll()
   },
   methods:{

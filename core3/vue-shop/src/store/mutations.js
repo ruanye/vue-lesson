@@ -1,6 +1,14 @@
 import * as Types from './mutations-types'
 import Vue from 'vue'
 const mutations ={
+	// 商品数量增加事件
+	addC(state,params){
+     // 增加传递过来的商品数量
+	  let good = state.carlist.find(item=>item.id==params.id)
+	   good.count++
+	   //手动更新vuex 里面carlist
+	   state.carlist = [...state.carlist]
+	},
 	//atcions流程4 全选事件
 	changCheck(state,val){
       //actions 流程5 改变state的数据

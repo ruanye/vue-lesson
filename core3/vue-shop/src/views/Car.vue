@@ -2,56 +2,63 @@
   <div>
    <Header>购物车</Header>
     <div class="container">
-      <input type="checkbox" class="inp" v-model="checkAll"/>
+      <label for="checkall">
+         <span>全选</span>
+         <input v-model="checkAll" class="inp" type="checkbox" id="checkall">
+       </label>
        <ul>
-         <li v-for="good in carlist" :key="good.id" class="car-item">
-            <input class="inp" type="checkbox" v-model="good.xuanzhong">
-            <div>
-             <img :src="good.img" alt="">
-             <p>{{good.count}}</p>
-             <p>{{good.number}}</p>
-             <p>{{good.price}}</p>
-            </div>
+         <li v-for='item in carlist' :key='item.id' class="car-item">
+          <div class="left-item">
+            <input v-model='item.sele' type="checkbox" class="inp" >
+           </div>
+           <div>
+             <p>{{item.name}}</p>
+             <div class="btn-group">
+               <span @click="addCount(item)">+</span>
+               <p>{{item.count}}</p>
+               <span>-</span>
+              </div>
+             <p>{{item.price}}</p>
+             <img :src="item.img"/>
+           </div>
          </li>
        </ul>
-       <div>总价：{{total}}</div>
+       <div>总价：{{$store.getters.total}}</div>
     </div>
   </div>
 </template>
 <script>
 import Header from '../components/Header'
+import {mapState} from 'vuex'
 export default {
    name: 'car',
-   data(){
-      return {
-        carlist:[]
-      }
-   },
-   created(){
-     this.carlist =localStorage['carlist']?JSON.parse(localStorage['carlist']):[]
-    },
-    computed:{
-      checkAll:{
-        get(){
-          return this.carlist.every(item=>item.xuanzhong==true)
-        },
-        set(val){
-          this.carlist.forEach(check=>check.xuanzhong=val)
-        }
+  components:{ 
+    Header
+  },
+  methods:{
+    addCount(good){
+      // 1
+      this.$store.dispatch('addC',good)
+    }
+  },
+  computed:{
+    ...mapState(['carlist']),
+    checkAll:{
+      get(){
+        return this.$store.getters.checkAllVal
       },
-      total(){
-        return 
-        let newar  = this.carlist.filter(item=>item.xuanzhong==true)
-        let price = newar.reduce((prev,next)=>prev+next.count*next.price,0)
-        return price
+      set(val){ //只要checkAll改变就会触发set方法，下面每一项都要跟着这个值做改变
+       // [name:'',id:'',sele: true,name:'',id:'',sele: false]
+        //通过vuex的数据必须经过mutations去修改值
+        // 全选值改变触发所有单选框改变的事件
+        //actions流程1 
+        this.$store.dispatch('checkAll',val)
       }
-    },
-   components:{
-     Header
-   }
+    }
+  }
 }
 </script>
-<style scoped>
+<style lang='less' scoped>
 .inp{
   appearance: none; 
   width: 40px;
@@ -59,7 +66,6 @@ export default {
   border: 1px solid yellowgreen;
   outline: none;
   border-radius: 8px;
-  align-self: center
 }
 .inp:before{
    content: '';
@@ -87,5 +93,15 @@ export default {
  }
  .left-item{
    align-self: center
+ }
+ .btn-group{
+   span{
+     display: inline-block;
+     width: 100px;
+     height: 30px;
+     line-height: 30px;
+     font-size: 30px;
+     background-color:green
+   }
  }
 </style>
